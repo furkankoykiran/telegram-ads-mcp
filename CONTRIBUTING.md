@@ -81,6 +81,19 @@ schemas that depend on changed parameters.
 4. Add the tool to the README table and a contract test that lists it.
 5. If the tool changes state, add an audit test and a blocked-mode test.
 
+## Releases
+
+1. Update `CHANGELOG.md` and bump the version in `package.json`.
+2. Run `npm run check && npm run build`.
+3. Open a pull request, merge it, and wait for CI on `main`.
+4. Create and push a tag: `git tag v0.1.0 && git push origin v0.1.0`.
+5. The `Release` workflow publishes to npm with provenance and creates a GitHub release.
+
+The first publish requires an `NPM_TOKEN` repository secret with publish access. After the package
+exists, configure trusted publishing on npmjs.com for `furkankoykiran/telegram-ads-mcp` and
+`.github/workflows/release.yml`, then remove `NODE_AUTH_TOKEN` from the workflow. The workflow can
+also be started manually with `workflow_dispatch` and `publish: true`.
+
 ## Reporting bugs
 
 Use the issue templates. For security issues, follow [SECURITY.md](SECURITY.md) instead of opening a
