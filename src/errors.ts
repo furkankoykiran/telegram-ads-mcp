@@ -56,6 +56,9 @@ export function hintFor(error: unknown): string | undefined {
   if (error.code === "BOT_ID_UNKNOWN") {
     return "Pass the bot as @username so this account can resolve it first, then retry with the numeric ID if needed.";
   }
+  if (error.code === "MAIN_ACCOUNT_REQUIRED") {
+    return "This method is only available to main (agency) accounts. Use a token from the main account.";
+  }
   if (error.code === "IDEMPOTENT_PARAM_MISMATCH") {
     return "This idempotency key was already used with different parameters. Retry with a new key.";
   }

@@ -8,6 +8,12 @@ import { loadConfig } from "../../src/config.js";
 function fakeFetch(): typeof globalThis.fetch {
   return (async (input: string | URL | Request): Promise<Response> => {
     const url = String(input);
+    if (url.endsWith("/getRelatedAccountsList")) {
+      return new Response(JSON.stringify({ ok: false, error: "MAIN_ACCOUNT_REQUIRED" }), {
+        status: 200,
+        headers: { "content-type": "application/json" },
+      });
+    }
     const result = url.endsWith("/getCurrentAccount")
       ? { account_id: "123", title: "Test", currency: "EUR", remaining_budget: 50 }
       : { total_count: 0, ads: [] };
@@ -63,6 +69,21 @@ describe("MCP server contract", () => {
     const result = await client.callTool({ name: "tg_get_account", arguments: {} });
     const payload = JSON.parse(textOf(result)) as { account: { account_id: string } };
     expect(payload.account.account_id).toBe("123");
+  });
+
+  it("degrades gracefully when related accounts are unavailable", async () => {
+    const result = await client.callTool({
+      name: "tg_get_account",
+      arguments: { include_related: true },
+    });
+    const payload = JSON.parse(textOf(result)) as {
+      account: { account_id: string };
+      related: unknown;
+      note: string;
+    };
+    expect(payload.account.account_id).toBe("123");
+    expect(payload.related).toBeNull();
+    expect(payload.note).toMatch(/main \(agency\) accounts/i);
   });
 
   it("blocks writes in the default read-only mode", async () => {
