@@ -10,6 +10,14 @@
     "id": "1466519973"
   },
   "version": "0.1.0",
+  "icons": [
+    {
+      "src": "https://raw.githubusercontent.com/furkankoykiran/telegram-ads-mcp/main/assets/logo.svg",
+      "mimeType": "image/svg+xml",
+      "sizes": ["any"],
+      "theme": "dark"
+    }
+  ],
   "packages": [
     {
       "registryType": "npm",
