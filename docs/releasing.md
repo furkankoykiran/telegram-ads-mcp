@@ -14,23 +14,29 @@ OIDC, and creates the GitHub release.
 5. Tag the merge commit and push the tag:
 
    ```bash
-   git tag v0.1.1
-   git push origin v0.1.1
+   git tag vX.Y.Z
+   git push origin vX.Y.Z
    ```
 
 6. Watch the Release workflow and confirm the npm version, MCP Registry entry and GitHub release.
 
 ## Trusted publishing
 
-The first publish used the `NPM_TOKEN` repository secret. To remove that long-lived token and
-publish with OIDC:
+npm releases use [trusted publishing](https://docs.npmjs.com/trusted-publishers) over GitHub OIDC.
+There is no `NPM_TOKEN` repository secret and the workflow does not set `NODE_AUTH_TOKEN`.
+
+The package is linked on npmjs.com to:
+
+- repository `furkankoykiran/telegram-ads-mcp`
+- workflow `release.yml`
+- no environment
+
+If the link ever needs to be recreated:
 
 1. Open the package settings on npmjs.com and choose **Trusted publishing**.
-2. Add a GitHub Actions publisher with repository `furkankoykiran/telegram-ads-mcp` and workflow
-   `release.yml`. Leave the environment empty.
-3. Delete the `NPM_TOKEN` secret from the GitHub repository.
-4. Push the next `v*` tag. The workflow already requests `id-token: write` and publishes with
-   `--provenance`, so npm authenticates through OIDC.
+2. Add a GitHub Actions publisher with the values above and allow **npm publish**.
+3. Push the next `v*` tag. The first successful publish validates the configuration.
 
-The npm CLI cannot create this relationship with a granular access token that bypasses 2FA. An
-account owner must complete the one-time setup in the npm web UI.
+The workflow already requests `id-token: write` and publishes with `--provenance`, so npm
+authenticates through OIDC. The npm CLI cannot create this relationship with a granular access token
+that bypasses 2FA; an account owner must complete the one-time setup in the npm web UI.
