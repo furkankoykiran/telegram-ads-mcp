@@ -83,16 +83,16 @@ schemas that depend on changed parameters.
 
 ## Releases
 
-1. Update `CHANGELOG.md` and bump the version in `package.json`.
+1. Update `CHANGELOG.md` and bump the version in `package.json`, `package-lock.json` and both places
+   in `server.json`.
 2. Run `npm run check && npm run build`.
 3. Open a pull request, merge it, and wait for CI on `main`.
-4. Create and push a tag: `git tag v0.1.0 && git push origin v0.1.0`.
-5. The `Release` workflow publishes to npm with provenance and creates a GitHub release.
+4. Create and push a tag: `git tag vX.Y.Z && git push origin vX.Y.Z`.
+5. The `Release` workflow publishes to npm with provenance, updates the MCP Registry and creates a
+   GitHub release.
 
-The first publish requires an `NPM_TOKEN` repository secret with publish access. After the package
-exists, configure trusted publishing on npmjs.com for `furkankoykiran/telegram-ads-mcp` and
-`.github/workflows/release.yml`, then remove `NODE_AUTH_TOKEN` from the workflow. The workflow can
-also be started manually with `workflow_dispatch` and `publish: true`.
+Publishing uses npm trusted publishing over GitHub OIDC, so no `NPM_TOKEN` secret is required. The
+workflow can also be started manually with `workflow_dispatch` and `publish: true`.
 
 ## Reporting bugs
 

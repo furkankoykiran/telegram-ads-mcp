@@ -6,6 +6,22 @@ All notable changes to this project are documented here. The format follows
 
 ## [Unreleased]
 
+## [0.1.2] - 2026-11-21
+
+### Changed
+
+- npm releases now use trusted publishing over GitHub OIDC; the `NPM_TOKEN` secret and
+  `NODE_AUTH_TOKEN` environment variable are no longer used.
+- The release workflow now waits up to six minutes for a new npm version to propagate before
+  publishing to the MCP Registry.
+- Release and contribution docs describe the OIDC setup and keep the version in `package-lock.json`
+  and `server.json` in sync.
+
+### Fixed
+
+- Normalized the `bin` paths in `package.json` so npm reports the CLI entries without a leading
+  `./`.
+
 ## [0.1.1] - 2026-11-21
 
 ### Added
@@ -35,6 +51,7 @@ All notable changes to this project are documented here. The format follows
 - Original SVG logo, MCP registry metadata and npm package assets.
 - Unit and contract tests, strict TypeScript, ESLint, Prettier and GitHub Actions CI on Node 22 and 24. Requires Node.js 22.18 or newer.
 
-[Unreleased]: https://github.com/furkankoykiran/telegram-ads-mcp/compare/v0.1.1...HEAD
+[Unreleased]: https://github.com/furkankoykiran/telegram-ads-mcp/compare/v0.1.2...HEAD
+[0.1.2]: https://github.com/furkankoykiran/telegram-ads-mcp/releases/tag/v0.1.2
 [0.1.1]: https://github.com/furkankoykiran/telegram-ads-mcp/releases/tag/v0.1.1
 [0.1.0]: https://github.com/furkankoykiran/telegram-ads-mcp/releases/tag/v0.1.0
