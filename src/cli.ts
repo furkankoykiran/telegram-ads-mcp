@@ -131,7 +131,7 @@ program
       type: "local",
       command: [launch.command, ...launch.args],
       environment: env,
-      enabled: true,
+      codemode: false,
     };
 
     for (const client of clients) {
@@ -156,10 +156,16 @@ program
       } else if (client === "opencode") {
         await writeConfig(
           join(homedir(), ".config", "opencode", "opencode.json"),
-          (config) => ({
-            ...config,
-            mcp: { ...asObject(config.mcp), "telegram-ads": openCodeEntry },
-          }),
+          (config) => {
+            const mcp = asObject(config.mcp);
+            return {
+              ...config,
+              mcp: {
+                ...mcp,
+                servers: { ...asObject(mcp.servers), "telegram-ads": openCodeEntry },
+              },
+            };
+          },
           options.print,
         );
       } else if (client === "claude-code") {
