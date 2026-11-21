@@ -20,7 +20,8 @@ All notable changes to this project are documented here. The format follows
 - CLI with `serve`, `doctor` and `init` for Claude Desktop, Claude Code, Cursor, Codex and OpenCode.
 - Resources (`guide`, `method-catalog`, `sdk.d.ts`) and prompts (`launch-ad`, `audit-account`,
   `weekly-report`).
-- Unit and contract tests, strict TypeScript, ESLint, Prettier and GitHub Actions CI.
+- Original SVG logo, MCP registry metadata and npm package assets.
+- Unit and contract tests, strict TypeScript, ESLint, Prettier and GitHub Actions CI on Node 22 and 24. Requires Node.js 22.18 or newer.
 
 [Unreleased]: https://github.com/furkankoykiran/telegram-ads-mcp/compare/v0.1.0...HEAD
 [0.1.0]: https://github.com/furkankoykiran/telegram-ads-mcp/releases/tag/v0.1.0
