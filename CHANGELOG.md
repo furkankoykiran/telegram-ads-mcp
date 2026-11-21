@@ -6,6 +6,13 @@ All notable changes to this project are documented here. The format follows
 
 ## [Unreleased]
 
+## [0.1.3] - 2026-11-21
+
+### Fixed
+
+- The CLI and MCP server now report the version from `package.json` instead of a hardcoded
+  `0.1.0` value.
+
 ## [0.1.2] - 2026-11-21
 
 ### Changed
@@ -51,7 +58,8 @@ All notable changes to this project are documented here. The format follows
 - Original SVG logo, MCP registry metadata and npm package assets.
 - Unit and contract tests, strict TypeScript, ESLint, Prettier and GitHub Actions CI on Node 22 and 24. Requires Node.js 22.18 or newer.
 
-[Unreleased]: https://github.com/furkankoykiran/telegram-ads-mcp/compare/v0.1.2...HEAD
+[Unreleased]: https://github.com/furkankoykiran/telegram-ads-mcp/compare/v0.1.3...HEAD
+[0.1.3]: https://github.com/furkankoykiran/telegram-ads-mcp/releases/tag/v0.1.3
 [0.1.2]: https://github.com/furkankoykiran/telegram-ads-mcp/releases/tag/v0.1.2
 [0.1.1]: https://github.com/furkankoykiran/telegram-ads-mcp/releases/tag/v0.1.1
 [0.1.0]: https://github.com/furkankoykiran/telegram-ads-mcp/releases/tag/v0.1.0
