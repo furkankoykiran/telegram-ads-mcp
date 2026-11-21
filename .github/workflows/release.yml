@@ -83,9 +83,9 @@ jobs:
             }
           '
 
-      # The first publish needs an NPM_TOKEN secret with publish access. Once the
-      # package exists, configure a trusted publisher on npmjs.com for this
-      # repository and release.yml, then remove NODE_AUTH_TOKEN to publish via OIDC.
+      # Publishing uses npm trusted publishing (OIDC). The package is linked on
+      # npmjs.com to this repository and release.yml, so no long-lived token is
+      # needed. The job already requests id-token: write above.
       - name: Publish to npm
         if: startsWith(github.ref, 'refs/tags/v') || inputs.publish
         run: |
@@ -95,8 +95,6 @@ jobs:
           else
             npm publish --access public --provenance
           fi
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Wait for npm package
         if: startsWith(github.ref, 'refs/tags/v')
