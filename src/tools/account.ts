@@ -1,6 +1,7 @@
 import type { McpServer } from "@modelcontextprotocol/server";
 import { z } from "zod";
 import type { RelatedAccountsList, TransactionStatus } from "../api/types.js";
+import { TelegramAdsError } from "../errors.js";
 import { compact, toolHandler, type ToolContext } from "./helpers.js";
 
 export function registerAccountTools(server: McpServer, ctx: ToolContext): void {
@@ -26,11 +27,22 @@ export function registerAccountTools(server: McpServer, ctx: ToolContext): void 
       const account = await ctx.client.getCurrentAccount();
       if (!input.include_related) return { account };
 
-      const related = await ctx.client.call<RelatedAccountsList>(
-        "getRelatedAccountsList",
-        compact({ offset: input.offset, limit: input.limit }),
-      );
-      return { account, related };
+      try {
+        const related = await ctx.client.call<RelatedAccountsList>(
+          "getRelatedAccountsList",
+          compact({ offset: input.offset, limit: input.limit }),
+        );
+        return { account, related };
+      } catch (error) {
+        if (error instanceof TelegramAdsError && error.code === "MAIN_ACCOUNT_REQUIRED") {
+          return {
+            account,
+            related: null,
+            note: "Related accounts are only available to main (agency) accounts.",
+          };
+        }
+        throw error;
+      }
     }),
   );
 
