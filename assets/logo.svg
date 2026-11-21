@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-labelledby="title">
+  <title id="title">Telegram Ads MCP</title>
+  <rect width="512" height="512" rx="112" fill="#0B1220"/>
+
+  <!-- Ascending analytics bars -->
+  <g id="analytics-bars">
+    <rect x="108" y="318" width="44" height="72" rx="12" fill="#FFB86B"/>
+    <rect x="168" y="250" width="44" height="140" rx="12" fill="#FFB86B"/>
+    <rect x="228" y="182" width="44" height="208" rx="12" fill="#FFB86B"/>
+  </g>
+
+  <!-- Original origami paper plane -->
+  <g id="paper-plane">
+    <polygon points="428,92 316,230 254,162" fill="#4EECD0"/>
+    <polygon points="428,92 316,230 296,272" fill="#149D7C"/>
+    <polygon points="428,92 398,272 316,230" fill="#2DE2B7"/>
+  </g>
+</svg>

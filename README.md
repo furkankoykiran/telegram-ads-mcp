@@ -1,9 +1,15 @@
-# Telegram Ads MCP
+<p align="center">
+  <img src="assets/logo.svg" width="112" height="112" alt="Telegram Ads MCP logo">
+</p>
 
-[![CI](https://github.com/furkankoykiran/telegram-ads-mcp/actions/workflows/ci.yml/badge.svg)](https://github.com/furkankoykiran/telegram-ads-mcp/actions/workflows/ci.yml)
-[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
-[![Node.js](https://img.shields.io/badge/node-%3E%3D22.18-339933?logo=node.js&logoColor=white)](https://nodejs.org)
-[![TypeScript](https://img.shields.io/badge/TypeScript-strict-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org)
+<h1 align="center">Telegram Ads MCP</h1>
+
+<p align="center">
+  <a href="https://github.com/furkankoykiran/telegram-ads-mcp/actions/workflows/ci.yml"><img src="https://github.com/furkankoykiran/telegram-ads-mcp/actions/workflows/ci.yml/badge.svg" alt="CI"></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License: MIT"></a>
+  <a href="https://nodejs.org"><img src="https://img.shields.io/badge/node-%3E%3D22.18-339933?logo=node.js&logoColor=white" alt="Node.js 22.18 or newer"></a>
+  <a href="https://www.typescriptlang.org"><img src="https://img.shields.io/badge/TypeScript-strict-3178C6?logo=typescript&logoColor=white" alt="TypeScript strict"></a>
+</p>
 
 An open-source [Model Context Protocol](https://modelcontextprotocol.io) server for the **official
 Telegram Ads API**. Manage accounts, advertisements, budgets, statistics, audiences, pixels and
@@ -398,7 +404,7 @@ Do not edit `src/api/catalog.ts` by hand.
 | `IDEMPOTENT_REQUEST_IN_PROGRESS`        | An identical request is still running. Wait and retry with the same key.                             |
 | Precision errors                        | Check the account currency with `tg_get_account`; EUR/TON use 2 decimals for CPM, XTR uses 0.        |
 | Stats range error                       | Use an interval of 300 or 86400 seconds and at most 1000 intervals; the server splits larger ranges. |
-| Client does not see the server          | Restart the client after editing its config, and check that `node --version` is 22.18 or newer.     |
+| Client does not see the server          | Restart the client after editing its config, and check that `node --version` is 22.18 or newer.      |
 
 ## Security
 
