@@ -129,19 +129,24 @@ command instead of editing their config.
 ```json
 {
   "mcp": {
-    "telegram-ads": {
-      "type": "local",
-      "command": ["npx", "-y", "telegram-ads-mcp"],
-      "environment": {
-        "TELEGRAM_ADS_TOKEN": "your-token",
-        "TG_ADS_MODE": "read-only",
-        "TG_ADS_CODE_MODE": "read-only"
-      },
-      "enabled": true
+    "servers": {
+      "telegram-ads": {
+        "type": "local",
+        "command": ["npx", "-y", "telegram-ads-mcp"],
+        "environment": {
+          "TELEGRAM_ADS_TOKEN": "your-token",
+          "TG_ADS_MODE": "read-only",
+          "TG_ADS_CODE_MODE": "read-only"
+        },
+        "codemode": false
+      }
     }
   }
 }
 ```
+
+OpenCode V2 uses the `mcp.servers` shape. `codemode: false` keeps the 24 tools directly callable;
+use the server's own `tg_execute` when you want sandboxed scripts.
 
 </details>
 
