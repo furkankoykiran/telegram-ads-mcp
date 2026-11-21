@@ -1,0 +1,55 @@
+name: Feature request
+description: Suggest a new tool, option or improvement.
+title: "[Feature]: "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        This project favors small, focused changes. Please describe the problem before the solution.
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: What are you trying to do that is difficult or impossible today?
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed solution
+      description: The smallest change that would solve the problem.
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: Existing tools, workarounds or other designs you tried.
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - Tools
+        - Code Mode
+        - CLI and setup
+        - Safety and policy
+        - Documentation
+        - Other
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checklist
+      options:
+        - label: I searched existing issues and the README before opening this one.
+          required: true
+        - label: This request uses the official Telegram Ads API, not browser automation.
+          required: true

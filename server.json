@@ -1,0 +1,79 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.furkankoykiran/telegram-ads",
+  "title": "Telegram Ads",
+  "description": "MCP server for the official Telegram Ads API: ads, budgets, stats, audiences and pixels.",
+  "websiteUrl": "https://github.com/furkankoykiran/telegram-ads-mcp#readme",
+  "repository": {
+    "url": "https://github.com/furkankoykiran/telegram-ads-mcp",
+    "source": "github",
+    "id": "1466519973"
+  },
+  "version": "0.1.0",
+  "icons": [
+    {
+      "src": "https://raw.githubusercontent.com/furkankoykiran/telegram-ads-mcp/main/assets/logo.svg",
+      "mimeType": "image/svg+xml",
+      "sizes": ["any"],
+      "theme": "dark"
+    }
+  ],
+  "packages": [
+    {
+      "registryType": "npm",
+      "registryBaseUrl": "https://registry.npmjs.org",
+      "identifier": "telegram-ads-mcp",
+      "version": "0.1.0",
+      "runtimeHint": "npx",
+      "transport": {
+        "type": "stdio"
+      },
+      "environmentVariables": [
+        {
+          "name": "TELEGRAM_ADS_TOKEN",
+          "description": "Telegram Ads API token from https://ads.telegram.org/account/api",
+          "isRequired": true,
+          "isSecret": true
+        },
+        {
+          "name": "TG_ADS_MODE",
+          "description": "read-only (default) or write. Write tools also require confirm: true.",
+          "default": "read-only",
+          "choices": ["read-only", "write"]
+        },
+        {
+          "name": "TG_ADS_CODE_MODE",
+          "description": "off, read-only (default) or write. Controls the tg_execute sandbox.",
+          "default": "read-only",
+          "choices": ["off", "read-only", "write"]
+        },
+        {
+          "name": "TG_ADS_ALLOWED_ACCOUNTS",
+          "description": "Optional comma-separated allowlist for explicit account_id values."
+        },
+        {
+          "name": "TG_ADS_MAX_CPM",
+          "description": "Optional per-call CPM cap in the account currency."
+        },
+        {
+          "name": "TG_ADS_MAX_AD_BUDGET",
+          "description": "Optional per-call ad budget or transfer cap in the account currency."
+        },
+        {
+          "name": "TG_ADS_MAX_DAILY_BUDGET",
+          "description": "Optional per-call daily budget limit in the account currency."
+        },
+        {
+          "name": "TG_ADS_AUDIT_LOG",
+          "description": "Optional path to a JSONL audit log."
+        },
+        {
+          "name": "TG_ADS_TIMEOUT_MS",
+          "description": "Per-request timeout in milliseconds.",
+          "default": "30000",
+          "format": "number"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,86 @@
+{
+  "name": "telegram-ads-mcp",
+  "version": "0.1.0",
+  "description": "Open-source MCP server for the official Telegram Ads API. Manage accounts, ads, stats, audiences, pixels, and targeting from Claude, Cursor, Codex, and other AI agents.",
+  "author": "Furkan Koykiran",
+  "license": "MIT",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "bin": {
+    "telegram-ads-mcp": "./dist/cli.js",
+    "tg-ads-mcp": "./dist/cli.js"
+  },
+  "files": [
+    "dist",
+    "assets",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=22.18.0"
+  },
+  "keywords": [
+    "mcp",
+    "mcp-server",
+    "model-context-protocol",
+    "telegram",
+    "telegram-ads",
+    "advertising",
+    "ai-agents",
+    "claude",
+    "cursor",
+    "codex",
+    "code-mode"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/furkankoykiran/telegram-ads-mcp.git"
+  },
+  "bugs": {
+    "url": "https://github.com/furkankoykiran/telegram-ads-mcp/issues"
+  },
+  "homepage": "https://github.com/furkankoykiran/telegram-ads-mcp#readme",
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsx src/cli.ts",
+    "start": "node dist/cli.js",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "check": "npm run typecheck && npm run lint && npm test",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm run build && npm test"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/server": "^2.4.0",
+    "commander": "^15.1.0",
+    "picocolors": "^1.1.1",
+    "quickjs-emscripten": "^0.32.0",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@modelcontextprotocol/client": "^2.4.0",
+    "@types/node": "^24.0.0",
+    "eslint": "^10.15.0",
+    "prettier": "^3.10.1",
+    "tsup": "^9.0.0",
+    "tsx": "^4.23.15",
+    "typescript": "^6.0.3",
+    "typescript-eslint": "^8.73.0",
+    "vitest": "^5.1.1"
+  }
+}
