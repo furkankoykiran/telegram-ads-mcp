@@ -15,8 +15,8 @@
     }
   },
   "bin": {
-    "telegram-ads-mcp": "./dist/cli.js",
-    "tg-ads-mcp": "./dist/cli.js"
+    "telegram-ads-mcp": "dist/cli.js",
+    "tg-ads-mcp": "dist/cli.js"
   },
   "files": [
     "dist",
