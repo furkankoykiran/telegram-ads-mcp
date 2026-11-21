@@ -6,6 +6,7 @@
 
 <p align="center">
   <a href="https://github.com/furkankoykiran/telegram-ads-mcp/actions/workflows/ci.yml"><img src="https://github.com/furkankoykiran/telegram-ads-mcp/actions/workflows/ci.yml/badge.svg" alt="CI"></a>
+  <a href="https://registry.modelcontextprotocol.io/?q=io.github.furkankoykiran%2Ftelegram-ads"><img src="https://img.shields.io/badge/MCP%20Registry-listed-6f42c1" alt="MCP Registry"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License: MIT"></a>
   <a href="https://nodejs.org"><img src="https://img.shields.io/badge/node-%3E%3D22.18-339933?logo=node.js&logoColor=white" alt="Node.js 22.18 or newer"></a>
   <a href="https://www.typescriptlang.org"><img src="https://img.shields.io/badge/TypeScript-strict-3178C6?logo=typescript&logoColor=white" alt="TypeScript strict"></a>
@@ -49,17 +50,18 @@ targeting from Claude, Cursor, Codex, OpenCode or any MCP-compatible client.
 
 ### 1. Connect the server
 
-The package name is `telegram-ads-mcp`. Until the first npm release is available, install straight
-from GitHub; npm builds the package automatically:
-
-```bash
-npx -y github:furkankoykiran/telegram-ads-mcp doctor
-```
-
-After the npm release, the shorter form works too:
+The package is published on npm as `telegram-ads-mcp` and listed in the official
+[MCP Registry](https://registry.modelcontextprotocol.io/?q=io.github.furkankoykiran%2Ftelegram-ads)
+as `io.github.furkankoykiran/telegram-ads`. Run:
 
 ```bash
 npx -y telegram-ads-mcp doctor
+```
+
+To run the latest commit from GitHub instead of the npm release, use:
+
+```bash
+npx -y github:furkankoykiran/telegram-ads-mcp doctor
 ```
 
 Or build a local checkout:
@@ -85,7 +87,7 @@ npx -y telegram-ads-mcp init --client opencode --token <your-token>
 npx -y telegram-ads-mcp init --client all --token <your-token>
 ```
 
-Before the npm release, add `--github` so the generated config launches the GitHub package instead:
+To launch the GitHub package instead of the npm release, add `--github`:
 
 ```bash
 npx -y github:furkankoykiran/telegram-ads-mcp init --client all --github --token <your-token>
@@ -396,6 +398,9 @@ tests/
 The method catalog is generated from <https://ads.telegram.org/docs/api>. If Telegram ships a new
 API revision, run `npm run sync-catalog`, review the diff and update the tools that need new fields.
 Do not edit `src/api/catalog.ts` by hand.
+
+Release steps and the one-time trusted publishing setup are documented in
+[docs/releasing.md](docs/releasing.md).
 
 ## Troubleshooting
 

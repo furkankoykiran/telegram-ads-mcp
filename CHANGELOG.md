@@ -6,6 +6,18 @@ All notable changes to this project are documented here. The format follows
 
 ## [Unreleased]
 
+## [0.1.1] - 2026-11-21
+
+### Added
+
+- `mcpName` ownership marker so the npm package can be verified by the official MCP Registry.
+- Release workflow now publishes `server.json` to the MCP Registry with OIDC after npm.
+- Version check that keeps `server.json` and `package.json` in sync during releases.
+
+### Changed
+
+- README now documents npm as the primary install path and links the MCP Registry listing.
+
 ## [0.1.0] - 2026-11-21
 
 ### Added
@@ -23,5 +35,6 @@ All notable changes to this project are documented here. The format follows
 - Original SVG logo, MCP registry metadata and npm package assets.
 - Unit and contract tests, strict TypeScript, ESLint, Prettier and GitHub Actions CI on Node 22 and 24. Requires Node.js 22.18 or newer.
 
-[Unreleased]: https://github.com/furkankoykiran/telegram-ads-mcp/compare/v0.1.0...HEAD
+[Unreleased]: https://github.com/furkankoykiran/telegram-ads-mcp/compare/v0.1.1...HEAD
+[0.1.1]: https://github.com/furkankoykiran/telegram-ads-mcp/releases/tag/v0.1.1
 [0.1.0]: https://github.com/furkankoykiran/telegram-ads-mcp/releases/tag/v0.1.0

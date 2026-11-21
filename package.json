@@ -1,6 +1,7 @@
 {
   "name": "telegram-ads-mcp",
-  "version": "0.1.0",
+  "version": "0.1.1",
+  "mcpName": "io.github.furkankoykiran/telegram-ads",
   "description": "Open-source MCP server for the official Telegram Ads API. Manage accounts, ads, stats, audiences, pixels, and targeting from Claude, Cursor, Codex, and other AI agents.",
   "author": "Furkan Koykiran",
   "license": "MIT",
