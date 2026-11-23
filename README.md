@@ -10,6 +10,7 @@
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License: MIT"></a>
   <a href="https://nodejs.org"><img src="https://img.shields.io/badge/node-%3E%3D22.18-339933?logo=node.js&logoColor=white" alt="Node.js 22.18 or newer"></a>
   <a href="https://www.typescriptlang.org"><img src="https://img.shields.io/badge/TypeScript-strict-3178C6?logo=typescript&logoColor=white" alt="TypeScript strict"></a>
+  <a href="https://glama.ai/mcp/servers/furkankoykiran/telegram-ads-mcp"><img src="https://glama.ai/mcp/servers/furkankoykiran/telegram-ads-mcp/badges/score.svg" alt="furkankoykiran/telegram-ads-mcp MCP server"></a>
 </p>
 
 An open-source [Model Context Protocol](https://modelcontextprotocol.io) server for the **official
